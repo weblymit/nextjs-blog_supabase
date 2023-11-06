@@ -1,9 +1,7 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { redirectWithRefreshPage } from "@/utils/redirectWithRefreshPage";
 import { useRouter } from "next/navigation";
 import { updatePost } from "@/utils/requestClient";
 

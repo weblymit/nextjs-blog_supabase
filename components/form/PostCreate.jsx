@@ -1,10 +1,8 @@
 "use client";
 import { useForm } from "react-hook-form";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { redirectWithRefreshPage } from "@/utils/redirectWithRefreshPage";
 import { useRouter } from "next/navigation";
 import { createPost } from "@/utils/requestClient";
 
@@ -18,7 +16,6 @@ const schema = yup
 
 export default function PostCreate() {
 	const router = useRouter();
-	// const supabase = createClientComponentClient();
 
 	const {
 		register,

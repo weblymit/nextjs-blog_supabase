@@ -9,6 +9,19 @@ input, textarea {
 .error {
   @apply text-red-500 pt-1 text-sm ;
 }
+
+.active {
+  @apply bg-indigo-500 text-white;
+}
+
+
+.input {
+  @apply px-3 py-2 border-2 border-gray-200 rounded-lg block w-full;
+}
+
+.errMsg {
+  @apply text-red-500 text-sm;
+}
 @layer base {
   :root {
     --background: 0 0% 100%;
