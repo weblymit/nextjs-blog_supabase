@@ -1,10 +1,14 @@
 import { BtnDelete } from "@/components/BtnAction";
 import { getPost } from "@/utils/requests";
 import Link from "next/link";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 export default async function ShowPost({ params }) {
+	const supabase = createServerComponentClient({ cookies });
+
 	const { id } = params;
-	const post = await getPost(id);
+	const post = await getPost(supabase, id);
 
 	return (
 		<div>

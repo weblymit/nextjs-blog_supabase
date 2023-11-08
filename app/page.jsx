@@ -1,16 +1,16 @@
 import Post from "@/components/Post";
 import { getAllPosts } from "@/utils/requests";
-// import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-// import { cookies } from "next/headers";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 
 export default async function Home() {
-	// const supabase = createServerComponentClient({ cookies });
+	const supabase = createServerComponentClient({ cookies });
 
 	// const {
 	// 	data: { user },
 	// } = await supabase.auth.getSession();
 
-	const posts = await getAllPosts();
+	const posts = await getAllPosts(supabase);
 	return (
 		<div>
 			<h1 className='text-4xl font-black text-teal-500'>Latest Posts</h1>
