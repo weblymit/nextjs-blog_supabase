@@ -1,6 +1,7 @@
 "use client";
 import { redirectWithRefreshPage } from "@/utils/redirectWithRefreshPage";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const supabase = createClientComponentClient();
@@ -44,5 +45,16 @@ export function BtnUpdate({ id }) {
 		>
 			Edit
 		</button>
+	);
+}
+
+export function BtnEdit({ id }) {
+	return (
+		<Link
+			href={`/edit/${id}`}
+			className='bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded'
+		>
+			Edit
+		</Link>
 	);
 }
