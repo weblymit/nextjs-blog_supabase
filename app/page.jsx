@@ -4,6 +4,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 export default async function Home() {
+	"use server";
 	const supabase = createServerComponentClient({ cookies });
 	const { data: posts, error } = await supabase
 		.from("posts")
