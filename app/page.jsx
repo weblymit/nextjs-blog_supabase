@@ -4,11 +4,15 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 export default async function Home() {
-	// const supabase = createServerComponentClient({ cookies });
-
-	// const {
-	// 	data: { user },
-	// } = await supabase.auth.getSession();
+	const supabase = createServerComponentClient({ cookies });
+	const { data: posts, error } = await supabase
+		.from("posts")
+		.select("*")
+		.order("created_at", { ascending: false });
+	if (error) {
+		console.log(error.message);
+		throw error;
+	}
 
 	// const posts = await getAllPosts(supabase);
 	return (
@@ -18,9 +22,9 @@ export default async function Home() {
 				A blog created with Next.js, Supabase and Tailwind.css
 			</p>
 			<div className='mt-16'>
-				{/* {posts.map((post) => (
+				{posts.map((post) => (
 					<Post key={post.id} post={post} />
-				))} */}
+				))}
 			</div>
 		</div>
 	);
