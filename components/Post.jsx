@@ -1,5 +1,4 @@
 import Link from "next/link";
-import React from "react";
 
 export default function Post({ post }) {
 	const { created_at, title, content } = post;
