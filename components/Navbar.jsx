@@ -1,48 +1,48 @@
-"use client";
-import { logout } from "@/utils/reqAuth";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+// "use client";
+// import { logout } from "@/utils/reqAuth";
+// import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
-import Hamburger from "./Hamburger";
-import { MdClose } from "react-icons/md";
+// import { useRouter, usePathname } from "next/navigation";
+// import { useEffect, useState } from "react";
+// import Hamburger from "./Hamburger";
+// import { MdClose } from "react-icons/md";
 
 export default function Navbar() {
-	const router = useRouter();
-	const pathname = usePathname();
-	const supabase = createClientComponentClient();
-	// state
-	const [session, setSession] = useState(null);
-	const [show, setShow] = useState(false);
+	// const router = useRouter();
+	// const pathname = usePathname();
+	// const supabase = createClientComponentClient();
+	// // state
+	// const [session, setSession] = useState(null);
+	// const [show, setShow] = useState(false);
 
-	const handleOpen = () => {
-		setShow(!show);
-	};
+	// const handleOpen = () => {
+	// 	setShow(!show);
+	// };
 
-	useEffect(() => {
-		async function getSession() {
-			const { data: session, error } = await supabase.auth.getSession();
-			console.log("session:", session);
-			if (error) {
-				console.error(error);
-			}
+	// useEffect(() => {
+	// 	async function getSession() {
+	// 		const { data: session, error } = await supabase.auth.getSession();
+	// 		console.log("session:", session);
+	// 		if (error) {
+	// 			console.error(error);
+	// 		}
 
-			setSession(session);
-			setShow(false);
-			if (!session) {
-				router.push("/login");
-			}
-		}
+	// 		setSession(session);
+	// 		setShow(false);
+	// 		if (!session) {
+	// 			router.push("/login");
+	// 		}
+	// 	}
 
-		getSession();
-	}, [pathname]);
+	// 	getSession();
+	// }, [pathname]);
 
 	return (
 		<nav className='bg-gray-800 text-white flex justify-between items-center px-5 lg:px-32 py-8 text-lg'>
 			<Link href='/' className='font-black text-2xl'>
 				Blog.
 			</Link>
-			<Hamburger handleOpen={handleOpen} className='lg:hidden' />
+			{/* <Hamburger handleOpen={handleOpen} className='lg:hidden' />
 			<div className='space-x-8 hidden lg:block'>
 				{session == null ? (
 					<Link href='/login'>Login</Link>
@@ -80,7 +80,7 @@ export default function Navbar() {
 						)}
 					</div>
 				</div>
-			)}
+			)} */}
 		</nav>
 	);
 }
