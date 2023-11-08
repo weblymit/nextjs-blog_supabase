@@ -1,10 +1,9 @@
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
-const supabase = createServerComponentClient({ cookies });
-
 export async function getAllPosts() {
 	// create client supabase
+	const supabase = createServerComponentClient({ cookies });
 	const { data: posts, error } = await supabase
 		.from("posts")
 		.select("*")
@@ -18,6 +17,8 @@ export async function getAllPosts() {
 
 export async function getUserPosts(userId) {
 	// create client supabase
+	const supabase = createServerComponentClient({ cookies });
+
 	const { data: posts, error } = await supabase
 		.from("posts")
 		.select("*")
@@ -31,6 +32,8 @@ export async function getUserPosts(userId) {
 
 export async function getPost(id) {
 	// create client supabase
+	const supabase = createServerComponentClient({ cookies });
+
 	const { data, error } = await supabase
 		.from("posts")
 		.select()
