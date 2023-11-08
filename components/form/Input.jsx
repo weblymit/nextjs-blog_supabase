@@ -12,7 +12,7 @@ export default function Input({
 	return (
 		<div className='my-4'>
 			<Label htmlFor={name}>{name}</Label>
-			<input className='input' {...register(name)} {...props} />
+			<input className='input' id={name} {...register(name)} {...props} />
 			<p className='errMsg'>{errors?.message}</p>
 		</div>
 	);
