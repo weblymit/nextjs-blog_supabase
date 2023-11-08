@@ -1,16 +1,16 @@
 import Post from "@/components/Post";
-import { getAllPosts } from "@/utils/requests";
+// import { getAllPosts } from "@/utils/requests";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 export default async function Home() {
-	const supabase = createServerComponentClient({ cookies });
+	// const supabase = createServerComponentClient({ cookies });
 
 	// const {
 	// 	data: { user },
 	// } = await supabase.auth.getSession();
 
-	const posts = await getAllPosts(supabase);
+	// const posts = await getAllPosts(supabase);
 	return (
 		<div>
 			<h1 className='text-4xl font-black text-teal-500'>Latest Posts</h1>
@@ -18,9 +18,9 @@ export default async function Home() {
 				A blog created with Next.js, Supabase and Tailwind.css
 			</p>
 			<div className='mt-16'>
-				{posts.map((post) => (
+				{/* {posts.map((post) => (
 					<Post key={post.id} post={post} />
-				))}
+				))} */}
 			</div>
 		</div>
 	);
